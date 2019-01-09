@@ -7,18 +7,18 @@
 #include <map>
 using namespace std;
 
-class Solution 
+class Solution
 {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) 
+  public:
+    vector<int> twoSum(vector<int> &nums, int target)
     {
         vector<int> result;
         map<int, int> numsMap;
-        for(int i=0; i < nums.size(); ++i)
+        for (int i = 0; i < nums.size(); ++i)
         {
             int &num = nums[i];
             int remainder = target - num;
-            if(numsMap.find(remainder) != numsMap.end())
+            if (numsMap.find(remainder) != numsMap.end())
             {
                 result.push_back(numsMap[remainder]);
                 result.push_back(i);
@@ -33,14 +33,14 @@ public:
 
 int main()
 {
-    while(1)
+    while (1)
     {
         printf("count of nums:");
         int count = 0;
         scanf("%d", &count);
         printf("nums:");
         vector<int> nums(count, 0);
-        for(int i = 0; i < count; ++i)
+        for (int i = 0; i < count; ++i)
         {
             scanf("%d", &nums[i]);
         }
@@ -49,7 +49,7 @@ int main()
         scanf("%d", &target);
         Solution s;
         vector<int> result = s.twoSum(nums, target);
-        if(result.size() == 0)
+        if (result.size() == 0)
             printf("no sum of two nums equals the target");
         else
             printf("indices: %d, %d", result[0], result[1]);
@@ -58,7 +58,8 @@ int main()
         int stop = 0;
         scanf("%d", &stop);
 
-        if(!stop) break;
+        if (!stop)
+            break;
     }
 
     return 0;
