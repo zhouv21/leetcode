@@ -14,18 +14,17 @@ class Solution
     {
         if (s.size() == 0)
             return 0;
-        char *p = &s[0], *q = &s[0];
+        int i = 0, j = 0;
         map<char, int> charMap;
         int length = 1;
-        for (int i = 0; *q != '\0'; ++i)
+        for (; s[j] != '\0'; ++j)
         {
-            q = &s[i];
-            if (*q == '\0' || charMap.find(*q) != charMap.end())
+            if (charMap.find(s[j]) != charMap.end())
             {
-                length = (q - p) > length ? (q - p) : length;
-                p = &s[charMap[*q] + 1] > p ? &s[charMap[*q] + 1] : p;
+                i = (charMap[s[j]] + 1) > i ? (charMap[s[j]] + 1) : i;
             }
-            charMap[*q] = i;
+            length = (j - i + 1) > length ? (j - i + 1) : length;
+            charMap[s[j]] = j;
         }
         return length;
     }
